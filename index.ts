@@ -1,4 +1,3 @@
-// Encode a bigint into a VarInt represented by a Unit8Array
 export function encode(value: bigint | number): Uint8Array {
   value = BigInt(value);
 
@@ -19,7 +18,6 @@ export function encode(value: bigint | number): Uint8Array {
   return new Uint8Array(result);
 }
 
-// Decode a VarInt represented by a Unit8Array into a bigint
 export function decode(bytes: Uint8Array): bigint {
   let result = 0n;
   let shift = 0n;
@@ -32,3 +30,10 @@ export function decode(bytes: Uint8Array): bigint {
   }
   throw new Error("VarInt did not terminate");
 }
+
+decode(new Uint8Array([1]));
+decode(new Uint8Array([127]));
+decode(new Uint8Array([128, 1]));
+decode(new Uint8Array([255, 1]));
+decode(new Uint8Array([172, 2]));
+decode(new Uint8Array([128, 128, 1]));

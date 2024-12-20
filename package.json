@@ -1,9 +1,26 @@
 {
-  "name": "varint",
-  "module": "index.ts",
+  "name": "@aryzing/varint",
+  "version": "1.0.0",
+  "description": "Encode and decode `varint`s.",
+  "homepage": "https://github.com/aryzing/varint",
+  "bugs": {
+    "url": "https://github.com/aryzing/varint/issues"
+  },
+  "author": "Eduard Bardají Puig",
+  "repository": "https://github.com/chrisdickinson/varint",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
   "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "check-types": "attw --pack . --ignore-rules=cjs-resolves-to-esm"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@arethetypeswrong/cli": "^0.17.2",
+    "@types/bun": "latest",
+    "prettier": "^3.4.2"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
